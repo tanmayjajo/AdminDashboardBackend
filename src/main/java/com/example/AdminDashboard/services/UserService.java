@@ -8,9 +8,14 @@ import java.util.List;
 public class UserService {
     @Autowired
     UserDAO userDAO;
-    public List<UserTable> getConsultantDetails(){
+    public List<UserTable> getConsultantDetails() {
         return userDAO.readAllConsultants();
     }
+
+    public List<UserTable> getConsultantDetailsByRole(String jobrole){
+        return userDAO.readAllConsultantsByRole(jobrole);
+    }
+
     public int countByRole(String role) {
         return userDAO.countByRole(role);
     }

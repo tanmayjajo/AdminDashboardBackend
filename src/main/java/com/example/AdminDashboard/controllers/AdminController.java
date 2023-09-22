@@ -50,6 +50,18 @@ public class AdminController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/getConsultantDetails/")
+    public ResponseEntity<List<User>> getConsultantDetailsByRole(@RequestParam String jobrole){
+        try{
+            List<User> users = new ArrayList<>();
+
+            userService.getConsultantDetailsByRole(jobrole);
+            return new ResponseEntity<>(users, HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @GetMapping("/getStats")
     public ResponseEntity<Map<String,Integer>> getStats(){
        try {

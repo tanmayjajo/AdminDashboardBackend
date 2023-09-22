@@ -61,8 +61,12 @@ dashboard, enabling seamless management of consultant requests, user profiles an
 
 ### 2. Consultant Details API:
 
-- Endpoint: `/api/getConsultantDetails`
+- Endpoint1: `/api/getConsultantDetails`
 - Description: This API allows the admin to view a list of all consultant with their details.
+
+- Endpoint2: `/api/getConsultantDetailByRole`
+- Description: This API allows the admin to view a list of all consultant with a sepcific Job Role.
+
 
 ### 3. Add Additional Details API:
 

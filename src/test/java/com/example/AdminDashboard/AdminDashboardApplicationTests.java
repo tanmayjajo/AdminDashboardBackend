@@ -36,6 +36,12 @@ public class AdminDashboardApplicationTests {
 	}
 
 	@Test
+	public void testGetConsultantDetailsByRole() throws Exception {
+		String jobrole = "Software Engineer";
+		assertEquals(HttpStatus.OK, adminController.getConsultantDetailsByRole(jobrole).getStatusCode());
+	}
+
+	@Test
 	public void testGetStats() throws Exception {
 		assertEquals(HttpStatus.OK, adminController.getStats().getStatusCode());
 	}

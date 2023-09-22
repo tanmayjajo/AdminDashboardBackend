@@ -26,9 +26,15 @@ public class UserDAO implements DAO<UserTable>{
         return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(UserTable.class));
     }
     public List<UserTable> readAllConsultants(){
-        String query = "SELECT * FROM UserTable WHERE role='Approved'";
+        String query = "SELECT * FROM UserTable WHERE role='Consultant'";
         return jdbcTemplate.query(query,BeanPropertyRowMapper.newInstance(UserTable.class));
     }
+
+    public List<UserTable> readAllConsultantsByRole(String jobrole){
+        String query = "SELECT * FROM UserTable WHERE role='Consultant' AND JobRole=" + jobrole;
+        return jdbcTemplate.query(query,BeanPropertyRowMapper.newInstance(UserTable.class));
+    }
+
     public int countByRole(String role){
         String query = "SELECT COUNT(*) FROM UserTable WHERE role='"+role+"'";
         return jdbcTemplate.queryForObject(query,Integer.class);
